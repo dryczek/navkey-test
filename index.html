@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>JPMC Navkey Test</title>
+  <style>
+    body {
+      font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
+      background: #f4f5f7;
+      margin: 0;
+      padding: 40px 20px;
+      color: #1a1a1a;
+    }
+    .container {
+      max-width: 640px;
+      margin: 0 auto;
+      background: #fff;
+      border-radius: 12px;
+      padding: 32px;
+      box-shadow: 0 1px 4px rgba(0,0,0,0.1);
+    }
+    h1 {
+      font-size: 20px;
+      margin: 0 0 4px;
+    }
+    p.sub {
+      color: #666;
+      margin: 0 0 24px;
+      font-size: 14px;
+    }
+    .btn {
+      display: block;
+      width: 100%;
+      box-sizing: border-box;
+      text-align: left;
+      padding: 14px 18px;
+      margin-bottom: 12px;
+      background: #117aca;
+      color: #fff;
+      text-decoration: none;
+      border-radius: 8px;
+      font-size: 15px;
+      font-weight: 600;
+      transition: background 0.15s;
+    }
+    .btn:hover { background: #0e5fa0; }
+    .btn small {
+      display: block;
+      font-weight: 400;
+      font-size: 12px;
+      opacity: 0.85;
+      margin-top: 4px;
+      word-break: break-all;
+    }
+  </style>
+</head>
+<body>
+  <div class="container">
+    <h1>JPMC Navkey Test</h1>
+    <p class="sub">Click a button to open the corresponding navkey URL.</p>
+
+    <a class="btn" href="https://secure.chase.com/web/auth/nav?navkey=requestAccountOpenByApplicationNumber&applicationNumber=124">
+      requestAccountOpenByApplicationNumber
+      <small>navkey=requestAccountOpenByApplicationNumber&applicationNumber=124</small>
+    </a>
+
+    <a class="btn" href="https://secure.chase.com/web/auth/nav?navkey=requestFirstChecking">
+      requestFirstChecking
+      <small>navkey=requestFirstChecking</small>
+    </a>
+  </div>
+</body>
+</html>
