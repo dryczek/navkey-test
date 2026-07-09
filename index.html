@@ -53,6 +53,34 @@
       margin-top: 4px;
       word-break: break-all;
     }
+    .dynamic {
+      border: 1px solid #e0e2e6;
+      border-radius: 8px;
+      padding: 16px;
+      margin-bottom: 12px;
+    }
+    .dynamic label {
+      display: block;
+      font-size: 13px;
+      font-weight: 600;
+      margin-bottom: 6px;
+    }
+    .dynamic input {
+      width: 100%;
+      box-sizing: border-box;
+      padding: 10px 12px;
+      font-size: 14px;
+      border: 1px solid #c4c7cc;
+      border-radius: 6px;
+      margin-bottom: 12px;
+    }
+    .dynamic .btn { margin-bottom: 8px; }
+    .dynamic small {
+      display: block;
+      font-size: 12px;
+      color: #666;
+      word-break: break-all;
+    }
   </style>
 </head>
 <body>
@@ -69,6 +97,44 @@
       requestFirstChecking
       <small>navkey=requestFirstChecking</small>
     </a>
+
+    <div class="dynamic">
+      <label for="appNum">requestAccountOpenByApplicationNumber (qac2)</label>
+      <input type="text" id="appNum" placeholder="Enter applicationNumber" oninput="updateLink()">
+      <a class="btn" id="qac2Btn" href="#" onclick="return goQac2()">Open qac2 URL</a>
+      <small id="preview"></small>
+    </div>
   </div>
+
+  <script>
+    var BASE = "https://qac2-secure01ea.chase.com/web/auth/nav?navkey=requestAccountOpenByApplicationNumber&applicationNumber=";
+
+    function currentUrl() {
+      return BASE + encodeURIComponent(document.getElementById("appNum").value.trim());
+    }
+
+    function updateLink() {
+      var val = document.getElementById("appNum").value.trim();
+      var btn = document.getElementById("qac2Btn");
+      var preview = document.getElementById("preview");
+      if (val) {
+        btn.href = currentUrl();
+        preview.textContent = currentUrl();
+      } else {
+        btn.href = "#";
+        preview.textContent = "";
+      }
+    }
+
+    function goQac2() {
+      var val = document.getElementById("appNum").value.trim();
+      if (!val) {
+        alert("Enter an applicationNumber first.");
+        return false;
+      }
+      window.location.href = currentUrl();
+      return false;
+    }
+  </script>
 </body>
 </html>
